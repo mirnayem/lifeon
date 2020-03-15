@@ -1,12 +1,19 @@
-@extends('layouts.app')
-
+@extends('layouts.main')
 
 @section('content')
-    @foreach ($posts as $post)
-         <h1>{{$post->title}} </h1>
-         <p> {{$post->body}} </p>
-         @foreach ($post->images as $image)
-             <img class="img-fluid" src=" {{$image->image}} " alt="">
-         @endforeach
-    @endforeach
+
+
+@include('partials.header')
+
+@include('partials.banner')
+
+@include('partials.subscribe')
+
+@include('partials.featured')
+
+@include('partials.social')
+@include('partials.footer')
+
+
+
 @endsection

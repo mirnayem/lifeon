@@ -1,11 +1,30 @@
- <!-- feature_post start-->
+ @extends('layouts.main')
+
+ @section('content')
+  
+ @include('partials.header')
+
+  <!-- breadcrumb start-->
+  <section class="breadcrumb breadcrumb_bg align-items-center">
+    <div class="container">
+        <div class="row align-items-center justify-content-between">
+            
+                <div class="breadcrumb_tittle">
+                    <h2 class="text-center">{{$category->name}}</h2>
+                </div>
+          
+           
+        </div>
+    </div>
+</section>
+
  <section class="all_post section_padding">
     <div class="container">
         <div class="row">
             <div class="col-lg-8">
                 <div class="row">
 
-                    @foreach ($allposts as $post)
+                    @foreach ($category->posts as $post)
                     <div class="col-lg-6 col-sm-6">
                         <div class="single_post post_1">
                             <div class="single_post_img">
@@ -38,7 +57,7 @@
                 <div class="page_pageniation">
                     <nav aria-label="Page navigation example">
 
-                        {{$allposts->links()}}
+                        {{-- {{$post_by_category->links()}} --}}
                        
                     </nav>
                 </div>
@@ -48,3 +67,7 @@
     </div>
 </section>
 <!-- feature_post end-->
+
+@include('partials.footer')
+
+@endsection

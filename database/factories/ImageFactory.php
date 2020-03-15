@@ -9,6 +9,6 @@ $factory->define(Image::class, function (Faker $faker) {
     
     return [
 
-        'image' => 'https://placeimg.com/100/100/any?' . rand(1, 100),
+        'image' => 'https://placeimg.com/800/600/any?' . rand(1, 100),
     ];
 });

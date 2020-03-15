@@ -25,4 +25,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('users', 'User\UserController');
 Route::resource('posts', 'Post\PostController');
 Route::resource('categories', 'Category\CategoryController');
+Route::resource('tags', 'Tag\TagController');
 Route::resource('comments', 'Comment\CommentController');

@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="{{asset('css/liner_icon.css')}}">
     <link rel="stylesheet" href="{{asset('css/search.css')}}">
     <!-- style CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.8.0/css/bulma.css">
     <link rel="stylesheet" href="{{asset('css/style.css')}}">
 </head>
 

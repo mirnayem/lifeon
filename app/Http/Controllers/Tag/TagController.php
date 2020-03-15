@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Category;
+namespace App\Http\Controllers\Tag;
 
-use App\Category;
 use App\Http\Controllers\Controller;
+use App\Tag;
 use Illuminate\Http\Request;
 
-class CategoryController extends Controller
+class TagController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +15,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        // $categories = Category::all();
-
-        // return view('categories.index',compact('categories'));
+        //
     }
 
     /**
@@ -47,11 +45,9 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
-       $category = Category::findOrFail($id);
-
-       return view('categories.show',compact('category'));
+    public function show(Tag $tag)
+    { 
+        return view('tags.show',compact('tag'));
     }
 
     /**

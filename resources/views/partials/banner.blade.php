@@ -1,30 +1,34 @@
    <!-- banner post start-->
    <section class="banner_post">
-    <div class="container-fluid">
-        <div class="row justify-content-between">
-            <div class="banner_post_1 banner_post_bg_1">
-                <div class="banner_post_iner text-center">
-                    <a href="category.html"><h5> Fashion / Life style</h5></a> 
-                    <a href="single-blog.html"><h2>All said replenish years void
-                        kind say void </h2></a> 
-                    <p>Posted on April 15, 2019</p>
-                </div>
-            </div><div class="banner_post_1 banner_post_bg_2">
-                <div class="banner_post_iner text-center">
-                    <a href="category.html"><h5> Fashion / Life style</h5></a> 
-                    <a href="single-blog.html"><h2>All said replenish years void
-                        kind say void </h2></a> 
-                    <p>Posted on April 15, 2019</p>
-                </div>
+    <div class="container">
+        <div class="row justify-content-between ">
+
+            @foreach ($posts as $post)
+            <div class="banner_post_1">
+                @foreach ($post->images as $item)
+                @if($post->images->first()==$item)
+                <img src="{{$item->image}}" alt="">
+                @endif
+                @endforeach
+              
+                   
+                       
+                       
+                    
+                    <a href="category.html">
+                        @foreach ($post->categories as $category)
+                        @if ($post->categories->first() == $category)
+                        <h5> {{$category->name}}</h5>
+                        @endif
+                        @endforeach
+                        
+                    </a> 
+                    <a href="{{route('posts.show', $post->id)}}"><h2> {{$post->title}} </h2></a> 
+                    <p>Posted on {{$post->created_at->toFormattedDateString()}}</p>
+             
             </div>
-            <div class="banner_post_1 banner_post_bg_3">
-                <div class="banner_post_iner text-center">
-                    <a href="category.html"><h5> Fashion / Life style</h5></a> 
-                    <a href="single-blog.html"><h2>All said replenish years void
-                        kind say void </h2></a> 
-                    <p>Posted on April 15, 2019</p>
-                </div>
-            </div>
+            @endforeach
+            
         </div>
     </div>
 </section>

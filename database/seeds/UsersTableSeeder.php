@@ -15,8 +15,8 @@ class UsersTableSeeder extends Seeder
     {
 
 
-        factory(User::class, 200)->create()->each(function($user){
-            $posts = factory(Post::class, rand(2,15))->make();
+        factory(User::class, 20)->create()->each(function($user){
+            $posts = factory(Post::class, rand(2,5))->make();
             $user->posts()->saveMany($posts);
          });
         

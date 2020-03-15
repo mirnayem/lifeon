@@ -15,9 +15,9 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::paginate(50);
+        $allposts = Post::paginate(10);
 
-        return $posts;
+        return view('posts.index',compact('allposts'));
     }
 
     /**
@@ -49,7 +49,15 @@ class PostController extends Controller
      */
     public function show($id)
     {
-        //
+        $post = Post::findOrFail($id);
+
+        $previous_id = Post::where('id','<',$post->id)->max('id');
+        $next_id = Post::where('id','>',$post->id)->min('id');
+    
+        $next = Post::find($next_id);
+        $previous = Post::find($previous_id);
+
+        return view('posts.show', compact('post','next','previous'));
     }
 
     /**
