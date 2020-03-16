@@ -27,3 +27,5 @@ Route::resource('posts', 'Post\PostController');
 Route::resource('categories', 'Category\CategoryController');
 Route::resource('tags', 'Tag\TagController');
 Route::resource('comments', 'Comment\CommentController');
+Route::get('/search', 'Post\PostController@search')->name('search');
+Route::get('/archive', 'Post\PostController@archive')->name('archive');

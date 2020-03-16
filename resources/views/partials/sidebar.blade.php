@@ -1,14 +1,41 @@
 <div class="col-lg-4">
     <div class="sidebar_widget">
         <div class="single_sidebar_wiget search_form_widget">
-            <form action="#">
+            <form action=" {{route('search')}} " method="GET">
+                @csrf
                 <div class="form-group">
-                    <input type="text" class="form-control" placeholder='Search Keyword'
+                    <input type="text" class="form-control" placeholder='Search Keyword' name="search"
                         onfocus="this.placeholder = ''" onblur="this.placeholder = 'Search Keyword'">
-                    <div class="btn_1">search</div>
+                        <button type="submit" class="btn_1">Search</button>
                 </div>
             </form>
         </div>
+
+
+
+        <div class="single_sidebar_wiget">
+            <div class="sidebar_tittle">
+                <h3>Archive Posts</h3>
+            </div>
+            <div class="single_catagory_item category">
+                <ul class="list-unstyled">
+
+                    @foreach ($archives as $stats)
+                    <li> 
+                        <a  href="/archive?month={{ $stats['month'] }}&year={{ $stats['year'] }}">
+    
+    
+                        {{$stats['month']. ' ' .$stats['year']}}
+                    </a>
+                  </li>
+                    @endforeach
+                 
+                </ul>
+            </div>
+        </div>
+
+
+
         <div class="single_sidebar_wiget">
             <div class="sidebar_tittle">
                 <h3>Categories</h3>

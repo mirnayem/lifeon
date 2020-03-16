@@ -3,17 +3,13 @@
     <div class="container">
         <div class="row justify-content-between ">
 
-            @foreach ($posts as $post)
+            @foreach ($posts->take(3) as $post)
             <div class="banner_post_1">
                 @foreach ($post->images as $item)
                 @if($post->images->first()==$item)
                 <img src="{{$item->image}}" alt="">
                 @endif
                 @endforeach
-              
-                   
-                       
-                       
                     
                     <a href="category.html">
                         @foreach ($post->categories as $category)

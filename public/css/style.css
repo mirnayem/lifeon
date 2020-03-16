@@ -566,7 +566,7 @@ ul {
 
 /* line 24, /Applications/MAMP/htdocs/palash/cl/july 2019/191 Lifeleck Blog/191 Lifeleck Blog html/sass/_button.scss */
 .btn_1 {
-  display: inline-block;
+  /* display: inline-block; */
   padding: 14.5px 58px;
   font-size: 14px;
   color: #fff;
@@ -2704,7 +2704,7 @@ ul {
 
 /* line 45, /Applications/MAMP/htdocs/palash/cl/july 2019/191 Lifeleck Blog/191 Lifeleck Blog html/sass/_subscribe_form.scss */
 .subscribe_form .btn_1 {
-  display: block;
+  /* display: block; */
   text-align: center;
 }
 
@@ -3236,7 +3236,7 @@ ul {
 
 /* line 7, /Applications/MAMP/htdocs/palash/cl/july 2019/191 Lifeleck Blog/191 Lifeleck Blog html/sass/_all_post.scss */
 .all_post .sidebar_widget .btn_1 {
-  display: block;
+  /* display: block; */
   text-align: center;
   margin-top: 15px;
 }

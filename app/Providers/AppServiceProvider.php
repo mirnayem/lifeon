@@ -27,7 +27,8 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         view()->composer('*', function ($view) {
-            $view->with('posts', Post::all()->take(3))->with( 'categories' , Category::all())->with('allposts', Post::paginate(14))->with('tags', Tag::all());
+            $view->with('posts', Post::all())->with( 'categories' , Category::all())->with('allposts', Post::paginate(14))->with('tags', Tag::all())
+                 ->with('archives', Post::selectRaw("year(created_at) year, monthname(created_at)  month ")->groupBy("year", "month")->orderByRaw("min(created_at) desc")->get()->toArray());
         });
     }
 }

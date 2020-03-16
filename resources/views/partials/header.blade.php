@@ -41,7 +41,8 @@
                         <ul>
                             <li>
                                 <div id="wrap">
-                                    <form action="#" autocomplete="on">
+                                    <form method="GET" action=" {{url('/search')}}" autocomplete="on">
+                                        @csrf
                                         <input id="search" name="search" type="text" placeholder="Search here"><span class="ti-search"></span> 
                                     </form>
                                 </div>

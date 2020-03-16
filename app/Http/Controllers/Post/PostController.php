@@ -93,4 +93,36 @@ class PostController extends Controller
     {
         //
     }
+
+    public function archive()
+    {
+        $archive_posts = Post::latest()
+            ->filter(request()->only(['month', 'year']))
+            ->get();
+
+        $archives = Post::selectRaw("year(created_at) year, monthname(created_at)  month ")->groupBy("year", "month")->orderByRaw("min(created_at) desc")->get()->toArray();
+
+        return view('posts.archive',compact('archives','archive_posts'));
+    }
+
+
+    public function search(Request $request)
+    {
+        $request->validate([
+            'search' => 'required | min:3',
+        ]);
+
+        $search = $request->input('search');
+
+        $search_posts = Post::where('title', 'like', "%$search%")->orWhereHas('categories', function ($q) use ($search) {
+            return $q->where('name', 'like', '%' . $search . '%');
+        })->orWhereHas('tags', function ($q) use ($search) {
+            return $q->where('name', 'like', '%' . $search . '%');
+        })->orWhereHas('user', function ($q) use ($search) {
+            return $q->where('name', 'like', '%' . $search . '%');
+        })->get();
+
+
+        return view('posts.search',compact('search_posts'));
+    }
 }
